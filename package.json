@@ -1,6 +1,6 @@
 {
   "name": "workspace-root",
-  "version": "6.4.1",
+  "version": "6.5.3",
   "private": true,
   "description": "Workspace root for ember-intl",
   "repository": {
@@ -13,9 +13,10 @@
   "scripts": {
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
+    "prepare": "pnpm --filter my-v2-addon build",
     "release:changelog": "changeset version",
     "release:package": "changeset publish",
-    "start": "pnpm --filter docs-app start",
+    "start": "pnpm --filter docs-app-for-ember-intl start",
     "test": "pnpm --filter '*' test"
   },
   "devDependencies": {
@@ -27,9 +28,12 @@
   },
   "pnpm": {
     "overrides": {
-      "@babel/core": "^7.23.9",
-      "@babel/traverse": "^7.23.9",
+      "@babel/core": "^7.24.0",
+      "@babel/traverse": "^7.24.0",
       "fast-glob": "^3.3.2"
+    },
+    "patchedDependencies": {
+      "ember-cli-addon-docs@7.0.1": "patches/ember-cli-addon-docs@7.0.1.patch"
     }
   }
 }
